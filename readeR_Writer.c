@@ -20,10 +20,11 @@ void *reade(void * arg){
         sleep(1);
         sem_wait(&r);
         readercount--;
+        printf("\nReader %d left",reader_id);
         if(readercount ==0) sem_post(&rw);
         sem_post(&r);
         sleep(1);
-        printf("\nReader %d left",reader_id);
+        
         sleep(1);
     }
     return NULL;
