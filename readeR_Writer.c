@@ -18,7 +18,7 @@ void *reade(void * arg){
         sleep(1);
         printf("\nReader %d is reading ",reader_id);
         sleep(1);
-        sem_post(&r);
+        sem_wait(&r);
         readercount--;
         if(readercount ==0) sem_post(&rw);
         sem_post(&r);
