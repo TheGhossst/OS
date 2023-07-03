@@ -74,7 +74,6 @@ void scan() {
     printf("\nMovement of Cylinders\n");
 
     if (start < previous) {
-        // Scan in the left direction till 0 (0 included)
         seekTime=0;
         for (i = pos; i > 0; i--) {
             diff = abs(scan_disk[i] - scan_disk[i - 1]);
@@ -84,10 +83,7 @@ void scan() {
         diff = scan_disk[0];
         seekTime += diff;
         printf("Move from %d to 0 with seek time %d\n", scan_disk[0], diff);
-
         current = 0;
-
-        // Scan in the right direction starting from 0
         for (i = pos+1; i <n; i++) {
             diff = abs(scan_disk[i] - current);
             seekTime += diff;
@@ -96,7 +92,6 @@ void scan() {
         }
     } else {
             seekTime=0;
-        // Scan in the right direction till 199 (199 included)
         for (i = pos; i < n - 1; i++) {
             diff = abs(scan_disk[i + 1] - scan_disk[i]);
             seekTime += diff;
@@ -105,10 +100,7 @@ void scan() {
         diff = 199 - scan_disk[n - 1];
         seekTime += diff;
         printf("Move from %d to 199 with seek time %d\n", scan_disk[n - 1], diff);
-
         current = 199;
-
-        // Scan in the right direction starting from 199
         for (i = pos - 1; i >=0; i--) {
             diff = abs(scan_disk[i] - current);
             seekTime += diff;
@@ -141,7 +133,6 @@ void cscan() {
     printf("\nMovement of Cylinders\n");
 
     if (start < previous) {
-        // Scan in the left direction till 0 (0 included)
         for (i = pos; i > 0; i--) {
             diff = abs(cscan_disk[i] - cscan_disk[i - 1]);
             seekTime += diff;
@@ -155,9 +146,6 @@ void cscan() {
         diff=current;
         seekTime+=diff;
         printf("Move from 0 to 199 with seek time %d\n",diff);
-
-
-        // Scan in the left direction from 0 to current head position
         for (i = n - 1; i > pos; i--) {
             diff = abs(cscan_disk[i] - current);
             seekTime += diff;
@@ -165,7 +153,6 @@ void cscan() {
             current = cscan_disk[i];
         }
     } else {
-        // Scan in the right direction till 199 (199 included)
         for (i = pos; i < n - 1; i++) {
             diff = abs(cscan_disk[i + 1] - cscan_disk[i]);
             seekTime += diff;
@@ -179,8 +166,6 @@ void cscan() {
         diff=199;
         seekTime+=diff;
         printf("Move from 199 to 0 with seek time %d\n",diff);
-
-        // Scan in the right direction from 199 to current head position
         for (i = 0; i < pos; i++) {
             diff = abs(cscan_disk[i] - current);
             seekTime += diff;
