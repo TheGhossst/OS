@@ -72,7 +72,6 @@ void scan() {
     printf("Enter the previous head position : ");
     scanf("%d",&previous);
     printf("\nMovement of Cylinders\n");
-
     if (start < previous) {
         seekTime=0;
         for (i = pos; i > 0; i--) {
@@ -83,6 +82,7 @@ void scan() {
         diff = scan_disk[0];
         seekTime += diff;
         printf("Move from %d to 0 with seek time %d\n", scan_disk[0], diff);
+
         current = 0;
         for (i = pos+1; i <n; i++) {
             diff = abs(scan_disk[i] - current);
@@ -91,7 +91,7 @@ void scan() {
             current = scan_disk[i];
         }
     } else {
-            seekTime=0;
+        seekTime=0;
         for (i = pos; i < n - 1; i++) {
             diff = abs(scan_disk[i + 1] - scan_disk[i]);
             seekTime += diff;
