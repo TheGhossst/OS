@@ -95,7 +95,7 @@ void optimal(){
 			stats=m-1;
 			if(init < m) fr[init++] = pg[i];
 			else{
-				for(j=i+1;j<n,stats=0;j++){
+				for(j=i+1;j<n,stats==0;j++){
 					for(k=0;k<m;k++){
 						if(pg[i] == fr[k] && check[k]!=1){
 							check[k]=1;
