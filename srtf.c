@@ -5,7 +5,7 @@ struct Process {
     int pid,at,bt,wt,tat,rt; 
 };
 
-bool isAllProcessesCompleted(const struct Process* processes, int n) {
+bool isAllProcessesCompleted(struct Process* processes, int n) {
     for (int i = 0; i < n; ++i) {
         if (processes[i].rt > 0) {
             return false;
