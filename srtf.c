@@ -1,14 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <limits.h>
 
 struct Process {
-    int pid;
-    int at; 
-    int bt; 
-    int wt; 
-    int tat; 
-    int rt; 
+    int pid,at,bt,wt,tat,rt; 
 };
 
 bool isAllProcessesCompleted(const struct Process* processes, int n) {
@@ -20,8 +14,8 @@ bool isAllProcessesCompleted(const struct Process* processes, int n) {
     return true;
 }
 
-int findShortestRemainingTimeProcess(const struct Process* processes, int n, int currentTime) {
-    int shortestRemainingTime = INT_MAX;
+int findShortestRemainingTimeProcess(struct Process* processes, int n, int currentTime) {
+    int shortestRemainingTime = 133321;
     int index = -1;
 
     for (int i = 0; i < n; ++i) {
